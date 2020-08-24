@@ -152,7 +152,7 @@ if __name__ == '__main__':
   if not os.path.exists(args.output_dir):
     os.makedirs(args.output_dir)
   shutil.copyfile(os.path.join(args.bert_model, 'vocab.txt'), os.path.join(args.output_dir, 'vocab.txt'))
-  shutil.copyfile(os.path.join(args.bert_model, 'bert_config.json'), os.path.join(args.output_dir, 'config.json'))
+  shutil.copyfile(os.path.join(args.bert_model, 'bert_config.json'), os.path.join(args.output_dir, 'bert_config.json'))
   log_wf = open(os.path.join(args.output_dir, 'log.txt'), 'a', encoding='utf-8')
 
   state_save_path = os.path.join(args.output_dir, 'pytorch_model.bin')
@@ -161,7 +161,7 @@ if __name__ == '__main__':
   ########################################
   ## build BERT encoder
   ########################################
-  bert_config = ConfigClass.from_json_file(os.path.join(args.bert_model, 'config.json'))
+  bert_config = ConfigClass.from_json_file(os.path.join(args.bert_model, 'bert_config.json'))
   if args.use_pretrain:
     previous_model_file = os.path.join(args.bert_model, "pytorch_model.bin")
     print('Loading parameters from', previous_model_file)

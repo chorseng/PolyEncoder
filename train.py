@@ -163,7 +163,8 @@ if __name__ == '__main__':
   ########################################
   bert_config = ConfigClass.from_json_file(os.path.join(args.bert_model, 'bert_config.json'))
   if args.use_pretrain:
-    previous_model_file = os.path.join(args.bert_model, "pytorch_model.bin")
+    #previous_model_file = os.path.join(args.bert_model, "pytorch_model.bin")
+    previous_model_file = state_save_path
     print('Loading parameters from', previous_model_file)
     log_wf.write('Loading parameters from %s' % previous_model_file + '\n')
     model_state_dict = torch.load(previous_model_file, map_location="cpu")
